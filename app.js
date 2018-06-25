@@ -16,7 +16,7 @@ app.get('/time', (req, res) => {
 })
 
 // send time each 1sec
-app.get('/clock0', (req, res) => {
+app.get('/clock1', (req, res) => {
   res.write('<html>')
   res.write('<head><title>clock1</title></head>')
   res.write('<body>')
@@ -25,23 +25,7 @@ app.get('/clock0', (req, res) => {
   }, 1000)
 })
 
-// handling connection close
-app.get('/clock1', (req, res) => {
-  res.write('<html>')
-  res.write('<head><title>clock1</title></head>')
-  res.write('<body>')
-  function sendTime() {
-    const status = res.write(`<p>${new Date}</p>`)
-    if (status) {
-      setTimeout(sendTime, 1000)
-    } else {
-      res.end()
-    }
-  }
-  sendTime()
-})
-
-// clock
+// clock (display:none, handling connection close)
 app.get('/clock2', (req, res) => {
   res.write(`
     <html>
