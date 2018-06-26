@@ -5,41 +5,41 @@ app.listen(8080)
 
 // send time
 app.get('/time', (req, res) => {
-  res.write('<html>')
-  res.write('<head><title>clock1</title></head>')
-  res.write('  <body>')
-  res.write('    <p>12:00:00</p>')
-  res.write('    <p>12:00:01</p>')
-  res.write('    <p>12:00:02</p>')
-  res.write('  </body>')
+  res.write('<html>\n')
+  res.write('<head><title>clock1</title></head>\n')
+  res.write('  <body>\n')
+  res.write('    <p>12:00:00</p>\n')
+  res.write('    <p>12:00:01</p>\n')
+  res.write('    <p>12:00:02</p>\n')
+  res.write('  </body>\n')
   res.write('</html>')
   res.end()
 })
 
 // send time each 1sec
 app.get('/clock1', (req, res) => {
-  res.write('<html>')
-  res.write('<head><title>clock1</title></head>')
-  res.write('<body>')
+  res.write('<html>\n')
+  res.write('<head><title>clock1</title></head>\n')
+  res.write('<body>\n')
   setInterval(() => {
-    res.write(`<p>${new Date}</p>`)
+    res.write(`<p>${new Date}</p>\n`)
   }, 1000)
 })
 
 // clock(display: none)
 app.get('/clock2', (req, res) => {
-  res.write('<style>p{font-size:48px;text-align:center;}</style>')
+  res.write('<style>p{font-size:48px;text-align:center;}</style>\n')
   let i = 0
   setInterval(() => {
     i++
-    res.write(`<p id='d${i}'>${strftime('%H:%M:%S', new Date)}</p>`)
-    res.write(`<style>#d${i-1}{display: none}</style>`)
+    res.write(`<p id='d${i}'>${strftime('%H:%M:%S', new Date)}</p>\n`)
+    res.write(`<style>#d${i-1}{display: none}</style>\n`)
   }, 1000)
 })
 
 // clock with handling connection close
 app.get('/clock3', (req, res) => {
-  res.write('<style>body{font-size:48px;}</style>')
+  res.write('<style>body{font-size:48px;}</style>\n')
   let i = 0
   function sendTime() {
     const date = new Date
