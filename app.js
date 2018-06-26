@@ -99,7 +99,7 @@ app.get('/message', (req, res) => {
     <a href='/message_action?q=Hello' target='ifrm'>Hello</a>
     <a href='/message_action?q=JavaScript' target='ifrm'>JavaScript</a>
     <a href='/message_action?q=World' target='ifrm'>World</a>
-    <form target='ifrm' action='click_action'>
+    <form target='ifrm' action='message_action'>
       <input type=image name=q style='border:2px solid red;width:100px;height:100px'>
     </form>
   `)
